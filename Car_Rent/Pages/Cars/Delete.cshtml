@@ -1,0 +1,17 @@
+@page "{id:int}"
+@model Car_Rent.Pages.Cars.DeleteModel
+@{
+    ViewData["Title"] = "Видалити авто";
+}
+
+<h2>Видалити авто</h2>
+
+<div class="alert alert-danger">
+    Ви впевнені, що хочете видалити авто <strong>@Model.Car.Name</strong>?
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Car.Id" />
+    <button type="submit" class="btn btn-danger">Видалити</button>
+    <a asp-page="Index" class="btn btn-secondary">Скасувати</a>
+</form>

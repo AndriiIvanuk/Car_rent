@@ -1,0 +1,34 @@
+@page
+@model Car_Rent.Pages.Cars.IndexModel
+@{
+    ViewData["Title"] = "Список автомобілів (Адмінка)";
+}
+
+<h2>Список автомобілів (Адмінка)</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Ціна за день</th>
+            <th>Опис</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.Cars)
+        {
+        <tr>
+            <td>@car.Name</td>
+            <td>@car.PricePerDay $</td>
+            <td>@car.Description</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@car.Id" class="btn btn-warning btn-sm">Редагувати</a>
+                <a asp-page="Delete" asp-route-id="@car.Id" class="btn btn-danger btn-sm">Видалити</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="Create" class="btn btn-primary">Додати авто</a>
