@@ -1,0 +1,36 @@
+@page "{id:int}"
+@model Car_Rent.Pages.Cars.EditModel
+@{
+    ViewData["Title"] = "Редагувати авто";
+}
+
+<h2>Редагувати авто</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Car.Id" />
+
+    <div class="mb-3">
+        <label asp-for="Car.Name" class="form-label"></label>
+        <input asp-for="Car.Name" class="form-control" />
+        <span asp-validation-for="Car.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Car.PricePerDay" class="form-label"></label>
+        <input asp-for="Car.PricePerDay" class="form-control" />
+        <span asp-validation-for="Car.PricePerDay" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Car.Description" class="form-label"></label>
+        <textarea asp-for="Car.Description" class="form-control"></textarea>
+        <span asp-validation-for="Car.Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Зберегти</button>
+    <a asp-page="Index" class="btn btn-secondary">Назад</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
